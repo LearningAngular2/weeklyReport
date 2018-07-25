@@ -31,6 +31,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatButtonModule,
     MatSelectModule,
     MatToolbarModule
+    // addd
   ],
   providers: [],
   bootstrap: [AppComponent]
