@@ -11,6 +11,7 @@ import {FormControl} from '@angular/forms';
 export class LoginComponent implements OnInit {
   toppings = new FormControl();
   toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+  hide = true;
 
   constructor() { }
     ngOnInit() {
