@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-md-6">
+    <mat-form-field>
+      <mat-select placeholder="Select Toppings" [formControl]="toppings" multiple>
+        <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    {{toppings.value | json}}
+  </div>
+  <button mat-raised-button color="primary">Primary</button>
+</div>
