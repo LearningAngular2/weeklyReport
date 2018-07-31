@@ -1,0 +1,104 @@
+<div class="container-fluid">
+  <div class="row justify-content-md-center">
+    <mat-card class="col-md-4">
+        <form class="example-form" [formGroup]="createUserForm">
+            <h3>Create user</h3>
+            <mat-form-field class="example-full-width col" [ngClass]="{'error': createUserForm.controls['userName'].errors && !createUserForm.controls['userName'].pristine}">
+              <input type="text" matInput formControlName="userName" placeholder="Enter User name" required>
+              <div *ngIf="createUserForm.controls['userName'].errors && !createUserForm.controls['userName'].pristine" class="error-msg">
+                <div [hidden]="!createUserForm.controls['userName'].errors.required">User name is required.</div>
+              </div>
+            </mat-form-field>
+            <mat-form-field class="example-full-width col" [ngClass]="{'error': createUserForm.controls['email'].errors && !createUserForm.controls['email'].pristine}">
+              <input type="email" matInput formControlName="email" placeholder="Email" required>
+              <div *ngIf="createUserForm.controls['email'].errors && !createUserForm.controls['email'].pristine" class="error-msg">
+                <div [hidden]="!createUserForm.controls['email'].errors.required">Email is required.</div>
+                <div [hidden]="!createUserForm.controls['email'].errors.patternInvalid">Email is invalid.</div>
+              </div>
+            </mat-form-field>
+            <mat-form-field  class="example-full-width col" [ngClass]="{'error': createUserForm.controls['role'].errors && !createUserForm.controls['role'].pristine}">
+              <mat-select formControlName="role" placeholder="Select Role" required>
+                <mat-option value="teammember">Team Member</mat-option>
+                <mat-option value="admin">Admin</mat-option>
+                <mat-option value="manager">Manager</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="col" [ngClass]="{'error': createUserForm.controls['password'].errors && !createUserForm.controls['password'].pristine}">
+              <input type="password" matInput formControlName="password" placeholder="Password" [type]="hide ? 'password' : 'text'" required>
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+              <div *ngIf="createUserForm.controls['password'].errors && !createUserForm.controls['password'].pristine" class="error-msg">
+                <div [hidden]="!createUserForm.controls['password'].errors.required">Password is required.</div>
+              </div>
+            </mat-form-field>
+  
+            <div class="row">
+                <div class="col-md-12"><button mat-raised-button class="btn float-right" color="primary" [disabled]="createUserForm.invalid" (click)="createUser()">Create User</button></div>
+            </div>
+        </form>
+    </mat-card>
+
+    <!-- <mat-card class="col-md-7">
+      <table mat-table [dataSource]="dataSource" style="width:100%">
+  
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef> Weight </th>
+          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef> Symbol </th>
+          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </mat-card> -->
+
+    <mat-card class="col-md-7">
+      <table mat-table [dataSource]="dataSource" style="width:100%">
+    
+        <!-- Position Column -->
+        <ng-container matColumnDef="userName">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="role">
+          <th mat-header-cell *matHeaderCellDef> Role </th>
+          <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="password">
+          <th mat-header-cell *matHeaderCellDef> Password </th>
+          <td mat-cell *matCellDef="let element"> {{element.password}} </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: tableColumns;"></tr>
+      </table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </mat-card>
+  </div>  
+</div>

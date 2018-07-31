@@ -1,16 +1,26 @@
 <div class="container-fluid loginBg">
     <div class="row justify-content-md-center">
         <mat-card>
-            <form class="example-form">
+            <form class="example-form" [formGroup]="loginForm">
                 <h3>Login</h3>
-                <mat-form-field class="example-full-width col">
-                  <input matInput placeholder="Enter User Name" value="">
+                <mat-form-field class="example-full-width col" [ngClass]="{'error': loginForm.controls['email'].errors && !loginForm.controls['email'].pristine}">
+                  <input type="email" matInput formControlName="email" placeholder="Email" required>
+                  <div *ngIf="loginForm.controls['email'].errors && !loginForm.controls['email'].pristine" class="error-msg">
+                    <div [hidden]="!loginForm.controls['email'].errors.required">Email is required.</div>
+                    <div [hidden]="!loginForm.controls['email'].errors.patternInvalid">Email is invalid.</div>
+                  </div>
                 </mat-form-field>
-                <mat-form-field class="col">
-                  <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+                <mat-form-field class="col" [ngClass]="{'error': loginForm.controls['password'].errors && !loginForm.controls['password'].pristine}">
+                  <input type="password" matInput formControlName="password" placeholder="Password" [type]="hide ? 'password' : 'text'" required>
                   <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                  <div *ngIf="loginForm.controls['password'].errors && !loginForm.controls['password'].pristine" class="error-msg">
+                    <div [hidden]="!loginForm.controls['password'].errors.required">Password is required.</div>
+                  </div>
                 </mat-form-field>
-                <button mat-raised-button color="primary">Login</button>
+                <div class="row">
+                   <div class="col-md-6"> <mat-slide-toggle [disabled]="loginForm.invalid">Remember</mat-slide-toggle></div>
+                    <div class="col-md-6"><button mat-raised-button class="btn float-right" color="primary" [disabled]="loginForm.invalid" (click)="login()">Login</button></div>
+                </div>
             </form>
         </mat-card>
     </div>  

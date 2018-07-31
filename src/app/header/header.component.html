@@ -1,8 +1,10 @@
 <mat-toolbar color="primary">
     <button mat-button routerLink="/dashboard">Weekly Report</button>
     <button mat-button routerLink="/dashboard">Dashboard</button>
-    <div class="headerRight">
-        <button mat-icon-button>
+    <button mat-button routerLink="/createuser">Create User</button>
+    <button mat-button routerLink="/createproject">Create Project</button>
+    <div class="headerRight" >
+        <button mat-icon-button *ngIf="loginBtn">
             <mat-icon aria-label="Example icon-button with a heart icon" routerLink="/login">exit_to_app</mat-icon>
         </button>
     </div>
