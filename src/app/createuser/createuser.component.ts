@@ -2,6 +2,14 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { patternValidator  } from '../pattern-validator';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { Observable, Subject, ReplaySubject, from, of, range } from 'rxjs';
+
+
+// import { AngularFire } from 'angularfire2';
+// //import { AngularFire, AuthProviders, AuthMethods,FirebaseListObservable } from 'angularfire2';
+// import { AngularFireDatabase, FirebaseListObservable} from "angularfire2";
+// //import {firebaseConfig} from '../../environments/firebase.config';
+
 
 @Component({
   selector: 'app-createuser',
@@ -9,14 +17,24 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
   styleUrls: ['./createuser.component.css']
 })
 export class CreateuserComponent implements OnInit {
+  // items: FirebaseListObservable<any[]>;
+  // constructor(db: AngularFireDatabase, afAuth: AngularFireAuth) { 
+  //   this.items = db.list('userTable/');
+  //   console.log(this.items);
+  // }
 
-  constructor() { }
+  // getAssignedTask(): Observable<Task[]> {
+  //   return this.db.list('/tasks', ref => ref.orderByChild('status').equalTo('Assigned')).snapshotChanges().map(changes => {
+  //     return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+  //   });
+  // }
+
 
   createUserForm : FormGroup;
   hide = true;
 
   tableColumns: string[] = ['userName', 'email', 'role', 'password'];
-  dataSource = new MatTableDataSource<tableElement>(dataSet);
+  dataSource = new MatTableDataSource(dataSet);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -33,16 +51,12 @@ export class CreateuserComponent implements OnInit {
       password: new FormControl('', Validators.required),
   });
   }
-dataArray : any = [{userName: "vishnu", email: "vishnu@wipro.com", role: "tm", password: "abc"}];
+  dataArray : any = [{userName: "vishnu", email: "vishnu@wipro.com", role: "tm", password: "abc"}];
   public createUser(){
     console.log(this.createUserForm.value);
-   // dataSet.push(this.createUserForm.value);
-   // this.dataSource.data = this.createUserForm.value;
-   this.dataArray.push(this.createUserForm.value);
-   //this.dataSource.data.push(this.dataArray);
+    this.dataArray.push(this.createUserForm.value);
     this.dataSource = new MatTableDataSource(this.dataArray);
     this.dataSource.paginator = this.paginator;
-   // this.dataSource = new MatTableDataSource.data.push(this.dataArray);
   }
 }
 
@@ -68,6 +82,7 @@ export interface tableElement{
   password : string;
 }
 
-const dataSet: tableElement[] = [
-  {userName: "vishnu", email: "vishnu@wipro.com", role: "tm", password: "abc"}
+const dataSet = [
+  {userName: "vishnuprasath", email: "vishnu@wipro.com", role: "tm", password: "abc"}
 ];
+

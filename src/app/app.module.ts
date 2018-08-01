@@ -7,6 +7,12 @@ import {
   MatSnackBarModule, MatTableModule, MatPaginatorModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// import { AngularFireModule } from 'angularfire2';
+// import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+// import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+// import {firebaseConfig} from './../environments/firebase.config';
+// import { AngularFirestore } from 'angularfire2/firestore';
+
 import { AppRoutingModule } from './app-router.module';
 
 import { AppComponent } from './app.component';
@@ -35,6 +41,9 @@ import { CreateprojectComponent } from './createproject/createproject.component'
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule ,
+    // AngularFireModule.initializeApp(firebaseConfig),
+    // AngularFireDatabaseModule,
+    // AngularFireAuthModule,
     MatInputModule,
     MatTabsModule,
     MatButtonModule,
