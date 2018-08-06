@@ -3,12 +3,9 @@ import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms'
 import { patternValidator  } from '../pattern-validator';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import { Observable, Subject, ReplaySubject, from, of, range } from 'rxjs';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 
-// import { AngularFire } from 'angularfire2';
-// //import { AngularFire, AuthProviders, AuthMethods,FirebaseListObservable } from 'angularfire2';
-// import { AngularFireDatabase, FirebaseListObservable} from "angularfire2";
-// //import {firebaseConfig} from '../../environments/firebase.config';
 
 
 @Component({
@@ -17,18 +14,11 @@ import { Observable, Subject, ReplaySubject, from, of, range } from 'rxjs';
   styleUrls: ['./createuser.component.css']
 })
 export class CreateuserComponent implements OnInit {
-  // items: FirebaseListObservable<any[]>;
-  // constructor(db: AngularFireDatabase, afAuth: AngularFireAuth) { 
-  //   this.items = db.list('userTable/');
-  //   console.log(this.items);
-  // }
-
-  // getAssignedTask(): Observable<Task[]> {
-  //   return this.db.list('/tasks', ref => ref.orderByChild('status').equalTo('Assigned')).snapshotChanges().map(changes => {
-  //     return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
-  //   });
-  // }
-
+  items: Observable<any[]>;
+  constructor(private db: AngularFireDatabase) {
+    this.items = db.list('userTable/').valueChanges();
+    console.log(this.items);
+};
 
   createUserForm : FormGroup;
   hide = true;
