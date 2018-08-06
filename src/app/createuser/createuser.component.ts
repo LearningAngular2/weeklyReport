@@ -4,6 +4,10 @@ import { patternValidator  } from '../pattern-validator';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import { Observable, Subject, ReplaySubject, from, of, range } from 'rxjs';
 import { map, filter, switchMap } from 'rxjs/operators';
+import { AngularFireDatabase } from 'angularfire2/database';
+
+
+
 
 @Component({
   selector: 'app-createuser',
@@ -11,8 +15,14 @@ import { map, filter, switchMap } from 'rxjs/operators';
   styleUrls: ['./createuser.component.css']
 })
 export class CreateuserComponent implements OnInit {
-  constructor() {
-  }
+  //constructor() {
+  //}
+  items: Observable<any[]>;
+  constructor(private db: AngularFireDatabase) {
+    this.items = db.list('userTable/').valueChanges();
+    console.log(this.items);
+};
+
   createUserForm : FormGroup;
   hide = true;
 

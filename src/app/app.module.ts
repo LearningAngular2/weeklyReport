@@ -8,6 +8,9 @@ import {
   MatNativeDateModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsModule } from 'ng2-charts';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 
 import { AppRoutingModule } from './app-router.module';
 
@@ -20,6 +23,7 @@ import { SharedComponent } from './shared/shared.component';
 import { CreateuserComponent } from './createuser/createuser.component';
 import { CreateprojectComponent } from './createproject/createproject.component';
 import { UsertaskComponent } from './usertask/usertask.component';
+import { firebaseConfig } from '../environments/firebase.config';
 
 @NgModule({
   declarations: [
@@ -40,6 +44,8 @@ import { UsertaskComponent } from './usertask/usertask.component';
     ReactiveFormsModule,
     BrowserAnimationsModule ,
     ChartsModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
     MatInputModule,
     MatTabsModule,
     MatButtonModule,
