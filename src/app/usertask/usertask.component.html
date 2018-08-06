@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="row justify-content-md-left">
+      <mat-card class="col-md-4">
+          <form class="example-form" [formGroup]="userTaskForm">
+              <h3>User Task</h3>
+              <mat-form-field>
+                  <mat-select placeholder="Select Project" formControlName="projects" (selectionChange) = "abc($event.value)" multiple>
+                    <mat-option *ngFor="let project of projectList" [value]="project">{{project.label}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              <div class="row">
+                  <div class="col-md-12"><button mat-raised-button class="btn float-right" color="primary" [disabled]="userTaskForm.invalid" (click)="createUser()">Create Project</button></div>
+              </div>
+          </form>
+      </mat-card>
+
+    </div>  
+  </div>
+  
+  <ul>
+    <li class="text" *ngFor="let item of items">
+      {{item.$value}}
+    </li>
+  </ul>
+  

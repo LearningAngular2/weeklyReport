@@ -4,14 +4,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
   MatInputModule, MatTabsModule, MatButtonModule, MatSelectModule, 
   MatCardModule, MatIconModule, MatToolbarModule, MatSlideToggleModule,
-  MatSnackBarModule, MatTableModule, MatPaginatorModule } from '@angular/material';
+  MatSnackBarModule, MatTableModule, MatPaginatorModule, MatDatepickerModule,
+  MatNativeDateModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-// import { AngularFireModule } from 'angularfire2';
-// import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-// import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
-// import {firebaseConfig} from './../environments/firebase.config';
-// import { AngularFirestore } from 'angularfire2/firestore';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-router.module';
 
@@ -23,6 +19,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SharedComponent } from './shared/shared.component';
 import { CreateuserComponent } from './createuser/createuser.component';
 import { CreateprojectComponent } from './createproject/createproject.component';
+import { UsertaskComponent } from './usertask/usertask.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +30,8 @@ import { CreateprojectComponent } from './createproject/createproject.component'
     DashboardComponent,
     SharedComponent,
     CreateuserComponent,
-    CreateprojectComponent
+    CreateprojectComponent,
+    UsertaskComponent
   ],
   imports: [
     BrowserModule,
@@ -41,9 +39,7 @@ import { CreateprojectComponent } from './createproject/createproject.component'
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule ,
-    // AngularFireModule.initializeApp(firebaseConfig),
-    // AngularFireDatabaseModule,
-    // AngularFireAuthModule,
+    ChartsModule,
     MatInputModule,
     MatTabsModule,
     MatButtonModule,
@@ -54,7 +50,9 @@ import { CreateprojectComponent } from './createproject/createproject.component'
     MatSlideToggleModule,
     MatSnackBarModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

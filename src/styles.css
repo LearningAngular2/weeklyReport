@@ -2,7 +2,9 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 .headerRight{position: absolute;right: 0;}
-.mainContent {padding-top: 80px;background: #ddd;min-height: 635px;}
+.mainContent {padding-top: 80px;background: #f9f9f9;min-height: 635px;}
 
 .error {color: red;}
 .error-msg {display: block;position: absolute;font-size: 75%;bottom: -2em;}
+
+.chartContainer{background: #fff}
