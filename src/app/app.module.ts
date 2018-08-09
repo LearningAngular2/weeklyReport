@@ -5,7 +5,7 @@ import {
   MatInputModule, MatTabsModule, MatButtonModule, MatSelectModule, 
   MatCardModule, MatIconModule, MatToolbarModule, MatSlideToggleModule,
   MatSnackBarModule, MatTableModule, MatPaginatorModule, MatDatepickerModule,
-  MatNativeDateModule } from '@angular/material';
+  MatNativeDateModule, MatProgressSpinnerModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsModule } from 'ng2-charts';
 import { AngularFireModule } from 'angularfire2';
@@ -58,7 +58,8 @@ import { firebaseConfig } from '../environments/firebase.config';
     MatTableModule,
     MatPaginatorModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

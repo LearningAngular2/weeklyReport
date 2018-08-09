@@ -45,8 +45,6 @@ export class DashboardComponent implements OnInit {
     {value: 'santhosh', viewValue: 'Santhosh Antony'},
     {value: 'vishnu', viewValue: 'Vishnu'}
   ];
-
-
   public barChartOptions:any = {
     scaleShowVerticalLines: false,
     responsive: true,
